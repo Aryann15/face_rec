@@ -28,9 +28,14 @@ def create_train():
                 labels.append(label)
 
 create_train()
-features = np.array(features)
+print("training complete")
+features = np.array(features, dtype='object')
 labels= np.array(labels)
 
 face_recognizer = cv.face.LBPHFaceRecognizer_create()
 
 face_recognizer.train(features,labels)
+
+face_recognizer.save('face_trained.yml')
+np.save('features.npy',features)
+np.save('labels.npy',labels)
