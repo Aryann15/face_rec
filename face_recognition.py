@@ -8,7 +8,7 @@ people = ['Robert downey jr', 'chris evans', 'chris hemsworth', 'jeremy renner',
 face_recognizer = cv.face.LBPHFaceRecognizer_create()
 face_recognizer.read('face_trained.yml')
 
-img= cv.imread(r'C:\Users\rajly\OneDrive\Desktop\validation\evans.jpeg')
+img= cv.imread(r'C:\Users\rajly\OneDrive\Desktop\validation\hemsworth.jpeg')
 
 gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 cv.imshow('Person',gray)
@@ -23,3 +23,5 @@ for x,y,w,h in faces_rect:
     cv.putText(img,str(people[label]) , (20,20), cv.FONT_HERSHEY_COMPLEX, 1.0 ,(0,0,255),thickness=2)
     cv.rectangle(img,(x,y),(x+w,y+h),(0,0,255),thickness=2)
 
+cv.imshow('detected face', img)
+cv.waitKey(0)
