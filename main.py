@@ -28,6 +28,9 @@ def create_train():
                 labels.append(label)
 
 create_train()
+features = np.array(features)
+labels= np.array(labels)
 
-print(f'Lenfth of the features = {len(features)}')
-print(f'Lenfth of the labels = {len(labels)}')
+face_recognizer = cv.face.LBPHFaceRecognizer_create()
+
+face_recognizer.train(features,labels)
